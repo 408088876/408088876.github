@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<title>我的电子相册</title>
+<script>
+			var index=1;
+			// 上一张功能
+			function shang(){
+				var image=document.getElementById("m1");
+				index--;
+				if(index==0){
+					index=8;
+				}
+				image.src=index+".jpg";
+			}
+			// 下一张功能
+			function xia(){
+				var image=document.getElementById("m1");
+				index++;
+				if(index==9){
+					index=1;
+				}
+				image.src=index+".jpg";
+			}
+			// 左箭头出现
+			function zuoru(){
+				var n=document.getElementById("m");
+				n.style.visibility="visible";	
+			}
+			// 左箭头消失
+			function zuochu(){
+				var n=document.getElementById("m");
+				n.style.visibility="hidden";	
+			}
+			// 右箭头出现
+			function youru(){
+				var v=document.getElementById("n");
+				v.style.visibility="visible";
+			}
+			// 右箭头消失
+			function youchu(){
+				var v=document.getElementById("n");
+				v.style.visibility="hidden";
+			}
+			
+		</script>
+<style>
+/*  标题 */
+ 
+#p1 {
+	color: red;
+	font-size: 30px;
+	font-family: 楷体;
+}
+/* 图片 */
+#m1 {
+	width: 614;
+	height: 460;
+}
+</style>
+<!-- 背景音乐 -->
+<!-- <bgsound src="bgm.mp3" loop="-1"/> -->
+<embed src="bgm/bgm.mp3" type="text/music" hidden="true" autostart="true" loop="true">
+	
+<!-- <video controls="controls" autoplay="autoplay" autostart="true" loop="true" name="media" hidden="true"><source src="bgm.mp3" type="audio/mpeg"></video> -->
+ 
+<!-- <audio controls autoplay="autoplay" style="" display="none" >
+<source src="bgm.mp3"></audio> -->
+</head>
+<body>
+	
+<!-- 整体居中 -->
+<table border="0" cellspacing="0" width="60%" height="30%" align="center" >
+  <!-- 标题 -->
+  <tr>
+    <td colspan="3"><marquee id="p1">
+      我的电子相册
+      </marquee></td>
+  </tr>
+  <!-- 左箭头，图片，右箭头 -->
+  <tr>
+    <td align="right"><img id="m1" img src="PFH/03.jpg" width="" height="40" title="左" style="visibility:hidden" id="m"/></td>
+    <td ><center>
+        <img id="m1" src="PFH/01.jpg" width="400"height="250"usemap="#p" title="电子相册"/>
+
+        <img id="m2" src="PFH/02.jpg" width="400"height="250"usemap="#p" title="电子相册"/>
+
+        <img id="m3" src="PFH/03.jpg" width="400"height="250"usemap="#p" title="电子相册"/>
+
+        <img id="m4" src="PFH/04.jpg" width="400"height="250"usemap="#p" title="电子相册"/>
+      </center></td>
+    <td align="left"><img id="m1" img src="PFH/02.jpg"width="" height="40" title="右" style="visibility:hidden" id="n"/></td>
+  </tr>
+  <!-- 按钮 -->
+  <tr>
+    <td></td>
+    <td><center>
+        <input type="button" value="上一张" onClick="shang()"/>
+        <input type="button" value="下一张" onClick="xia()"/>
+      </center></td>
+  </tr>
+  <tr>
+  	<td></td>
+  	<td ><hr><center><span>点击:&nbsp;</span><a href="four.html" target="_blank">进入下一层</a></center></td>
+  </tr>
+</table>
+<!-- 定位 -->
+<map name="p">
+  <area shape="rect" coords="0,0,307,460" onMouseOver="zuoru()" onMouseOut="zuochu()" onClick="shang()"/>
+  <area shape="rect" coords="307,0,614,460" onMouseOver="youru()" onMouseOut="youchu()" onClick="xia()"/>
+</map>
+</body>
+</html>
